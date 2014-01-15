@@ -3,10 +3,14 @@ using System.Collections;
 //Note this line, if it is left out, the script won't know that the class 'Path' exists and it will throw compiler errors
 //This line should always be present at the top of scripts which use %Pathfinding
 using Pathfinding;
+using System.Collections.Generic;
+
 public class AstarAI : MonoBehaviour {
 	//The point to move to
 	public Vector3 targetPosition;
 	public Transform orientation;
+	public List<GameObject> AggroList = new List<GameObject>();
+
 	private Transform o;
 	
 	private Seeker seeker;
@@ -21,21 +25,22 @@ public class AstarAI : MonoBehaviour {
 	
 	//The AI's speed per second
 	public float speed = 100;
+
+	public int RotationSpeed = 180;
 	
 	//The max distance from the AI to a waypoint for it to continue to the next waypoint
 	public float nextWaypointDistance = 3;
 	
 	//The waypoint we are currently moving towards
 	private int currentWaypoint = 0;
-	
-	public void Start () {
-		player = GameObject.Find ("Player");
 
-		StartCoroutine("FP");
+	public void Start () {
+		//StartCoroutine("FP");
 	}
 
-	private IEnumerator FP()		
-	{		
+	public IEnumerator FP()		
+	{	
+		player = GameObject.Find ("Player");
 		while(true)			
 		{			
 			yield return new WaitForSeconds(0.3f); // wait half a second			
@@ -66,7 +71,7 @@ public class AstarAI : MonoBehaviour {
 		}
 	}
 	
-	public void FixedUpdate () {
+	public void LateUpdate () {
 		if (path == null) {
 			return;
 		}
@@ -89,6 +94,7 @@ public class AstarAI : MonoBehaviour {
 								controller.SimpleMove (dir);
 								print ("Alalalala!");
 								IsInLos = true;
+								RotateToTarget (playerPos, false);
 						} else {
 								IsInLos = false;
 						}
@@ -102,17 +108,28 @@ public class AstarAI : MonoBehaviour {
 						lookdir.y = player.transform.position.y;
 						dir *= speed * Time.fixedDeltaTime;
 						controller.SimpleMove (dir);
+
+						RotateToTarget(path.vectorPath[currentWaypoint], false);
 						
-						transform.LookAt(path.vectorPath[currentWaypoint + 1]);
-						//transform.rotation = Quaternion.Lerp(transform.rotation, orientation.rotation, Time.deltaTime * 20);
-					
-						//Check if we are close enough to the next waypoint
-						//If we are, proceed to follow the next waypoint
 						if (Vector3.Distance (transform.position, path.vectorPath [currentWaypoint]) < nextWaypointDistance) {
 								currentWaypoint++;
 								return;
 						}
 		}
+	}
+
+	public void RotateToTarget(Vector3 target, bool IfReset)
+	{
+		float r = 20;
+		if (!IsInLos && !IfReset)
+				r = RotationSpeed * Time.deltaTime;
+
+		target.y = transform.position.y;
+		
+		Quaternion wantFace = Quaternion.LookRotation(target - transform.position);
+
+		transform.rotation = Quaternion.RotateTowards(transform.rotation,
+		                                              wantFace, r);
 	}
 } 
 
