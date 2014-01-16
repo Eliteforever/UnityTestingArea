@@ -45,8 +45,7 @@ public class AstarAI : MonoBehaviour {
 		{			
 			yield return new WaitForSeconds(0.3f); // wait half a second			
 			FindPath();			
-		}
-		
+		}	
 	}
 
 	private void FindPath()

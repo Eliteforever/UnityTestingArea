@@ -116,7 +116,9 @@
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
      <Compile Include="Assets\ListBox\ListBox.cs" />
      <Compile Include="Assets\Scripts\AstarAI.cs" />
-     <Compile Include="Assets\Scripts\aggroRange.cs" />
+     <Compile Include="Assets\Scripts\NPCstattsScript.cs" />
+     <Compile Include="Assets\Scripts\aggroClass.cs" />
+     <Compile Include="Assets\Scripts\aggroHandler.cs" />
      <Compile Include="Assets\Scripts\gameHandler.cs" />
      <Compile Include="Assets\Scripts\raycastScript.cs" />
      <None Include="Assets\Resources\Midis\carnival.mid.txt" />
