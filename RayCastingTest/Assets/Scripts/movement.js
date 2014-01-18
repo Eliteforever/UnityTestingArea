@@ -59,7 +59,7 @@ function Update ()
 		
 		
 	
-	// Toggle walking/running with the T key
+	//Toggle walking/running with the T key
 	//if(Input.GetKeyDown("t"))
 		//isWalking = !isWalking;
 
@@ -80,20 +80,23 @@ function Update ()
 	
 	
 	if(Input.GetMouseButton(1) || Input.GetMouseButton(0)) {
+		
+		//cursorHandler.Hide();
+		
+		//var mousePos : Vector3 = Input.mousePosition;		
+			
 		//Screen.lockCursor = true;
 		
-		Screen.showCursor = false; 
+		//Screen.showCursor = false; 
 		
 		
 		//var mouse1 = Input.mousePosition.y;
 		//var mouse2 = Input.mousePosition.x;
 		
 		}
-		
-		//Vector3 mousePos = Input.mousePosition;
 	else  {
 		//Screen.lockCursor = false;
-		Screen.showCursor = false; 
+		//Screen.showCursor = true; 
 		
 		//Input.mousePosition.y = mouse1;
 		//Input.mousePosition.x = mouse2;

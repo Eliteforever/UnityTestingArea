@@ -119,6 +119,7 @@
      <Compile Include="Assets\Scripts\NPCstattsScript.cs" />
      <Compile Include="Assets\Scripts\aggroClass.cs" />
      <Compile Include="Assets\Scripts\aggroHandler.cs" />
+     <Compile Include="Assets\Scripts\cursorHandler.cs" />
      <Compile Include="Assets\Scripts\gameHandler.cs" />
      <Compile Include="Assets\Scripts\raycastScript.cs" />
      <None Include="Assets\Resources\Midis\carnival.mid.txt" />
