@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\playerHandler.cs">
+    <Files>
+      <File FileName="Assets\Item.cs" Line="17" Column="18" />
+      <File FileName="Assets\itemsHandler.cs" Line="9" Column="26" />
+      <File FileName="Assets\playerHandler.cs" Line="26" Column="1" />
+      <File FileName="Assets\abstractPlayableCharacter.cs" Line="22" Column="19" />
+      <File FileName="Assets\Spell.cs" Line="32" Column="3" />
+      <File FileName="Assets\spellsHandler.cs" Line="11" Column="49" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
